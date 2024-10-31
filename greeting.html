@@ -47,25 +47,27 @@
   <button onclick="shareWishes()" class="share-button">Share Wishes 🎉</button>
 
   <script>
+
     window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name');
-        
-        // If the name parameter is missing, redirect to enterName.html
-        if (!name) {
-          window.location.href = "index.html";
-        } else {
-          displayGreeting(); // Display greeting if name exists
-        }
-      };
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
       
-      function displayGreeting() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name');
-        if (name) {
-          document.getElementById("personalMessage").textContent = `Happy Diwali, ${name}! May your festival be filled with joy and prosperity.`;
-        }
+      // If the name parameter is missing, redirect to index.html
+      if (!name) {
+        window.location.href = "index.html";
+      } else {
+        displayGreeting(); // Display greeting if name exists
       }
+    };
+    
+    function displayGreeting() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
+      if (name) {
+        document.getElementById("personalMessage").textContent = `Happy Diwali, ${name}! May your festival be filled with joy and prosperity.`;
+      }
+    }
+    
 
     // Check if name parameter is present in the URL
     function checkNameParam() {
@@ -74,7 +76,7 @@
 
       // If name is missing, redirect to the Enter Name page
       if (!name) {
-        window.location.href = "enterName.html"; // Replace with the correct path if needed
+        window.location.href = "index.html"; // Replace with the correct path if needed
       }
     }
 
@@ -83,6 +85,7 @@
       checkNameParam();
       displayGreeting(); // Display greeting if name exists
     };
+
     // Get name from URL and display the greeting
     function displayGreeting() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -110,21 +113,24 @@
     }
     setInterval(rotateMessages, 3000);
 
-    // Share Functionality
     function shareWishes() {
-      const textToShare = `✨ Happy Diwali! ✨ Wishing you light, love, and prosperity this festive season! 🎉`;
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name') || "your friend";
+      
+      const textToShare = `✨ Happy Diwali from ${name}! ✨ Wishing you light, love, and prosperity this festive season! 🎉`;
     
       if (navigator.share) {
         navigator.share({
           title: "Happy Diwali!",
           text: textToShare,
-          url: window.location.origin + "/enterName.html", // Make sure the correct path is here
+          url: window.location.href,
         }).catch((error) => console.log("Error sharing:", error));
       } else {
         alert("Sharing is not supported on this device.");
       }
     }
 
+    
 
     // Display the greeting when the page loads
     window.onload = displayGreeting;
