@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Diwali!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sparkling Dots Background -->
+    <div class="sparkle-bg">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  <h1 id="greetingMessage">✨ Happy Diwali ✨</h1>
+  
+  <!-- Personalized Message Display -->
+  <div class="personalized-greeting">
+    <p id="personalMessage"></p>
+  </div>
+
+  <!-- Diwali Blessings and Messages with Diyas -->
+  <div class="diwali-text">
+    <div class="diya-decor">🪔 🪔 🪔 🪔 🪔 🪔</div> <!-- Increased diya count -->
+    <p>May this Diwali bring you prosperity, good health, and happiness. May the light of the diyas guide you on the path of growth and success, and may the glow of joy illuminate your life.</p>
+    <p>As we celebrate this festival of lights, let us embrace the spirit of kindness, gratitude, and togetherness. Wishing you a Diwali that is as bright and joyful as the shining diyas that light up our homes!</p>
+    <div class="diya-decor">🪔 🪔 🪔 🪔 🪔 🪔</div> <!-- Increased diya count -->
+  </div>
+
+  <!-- Festive Messages Display -->
+  <div id="messageCarousel" class="message-carousel"></div>
+
+  <!-- Jai Shri Ram Message -->
+  <h2 class="jai-shri-ram">जय श्री राम</h2>
+
+  <!-- Share Button -->
+  <button onclick="shareWishes()" class="share-button">Share Wishes 🎉</button>
+
+  <script>
+    // Get name from URL and display the greeting
+    function displayGreeting() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
+      if (name) {
+        document.getElementById("personalMessage").textContent = `Happy Diwali, ${name}! May your festival be filled with joy and prosperity.`;
+      }
+    }
+
+    // Array of Festive Messages
+    const messages = [
+      "May the festival of lights brighten up your life with happiness and prosperity!",
+      "Wishing you and your family a sparkling and joyful Diwali!",
+      "May this Diwali bring peace and harmony to your home.",
+      "Light up your life with love, laughter, and positivity. Happy Diwali!",
+      "Let’s celebrate the victory of light over darkness. Have a safe and blessed Diwali!"
+    ];
+
+    // Rotate Messages
+    let messageIndex = 0;
+    function rotateMessages() {
+      const messageCarousel = document.getElementById("messageCarousel");
+      messageCarousel.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+    }
+    setInterval(rotateMessages, 3000);
+
+    // Share Functionality
+    function shareWishes() {
+      const textToShare = document.getElementById("personalMessage").textContent || "Wishing you a Happy Diwali!";
+      if (navigator.share) {
+        navigator.share({
+          title: "Happy Diwali!",
+          text: textToShare,
+          url: window.location.href,
+        }).catch((error) => console.log("Error sharing:", error));
+      } else {
+        alert("Sharing is not supported on this device.");
+      }
+    }
+
+    // Display the greeting when the page loads
+    window.onload = displayGreeting;
+  </script>
+</body>
+</html>

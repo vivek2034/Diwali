@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter Name</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sparkling Dots Background -->
+    <div class="sparkle-bg">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  <div class="name-entry">
+    <h1>Welcome!!!</h1>
+    <p>Please enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="goToGreeting()">Enter</button>
+  </div>
+  
+  <script>
+    // Function to redirect to greeting page with name
+    function goToGreeting() {
+      const name = document.getElementById("nameInput").value;
+      if (name) {
+        window.location.href = `greeting.html?name=${encodeURIComponent(name)}`;
+      } else {
+        alert("Please enter your name.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+/* General Page Styling */
+body {
+  background: linear-gradient(135deg, #2d2d42, #1e1e30);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  min-height: 100vh; /* Ensure it takes full height */
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffdd59;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Add padding for small devices */
+}
+
+.content {
+  flex: 1; /* Allow it to grow and take available space */
+  width: 100%; /* Make it responsive */
+  max-width: 600px; /* Limit max width for larger screens */
+  text-align: center; /* Center text */
+  margin: 0 auto; /* Center content */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ffd700;
+  text-align: center;
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ff8c00, 0 0 20px #ff8c00, 0 0 25px #ff4500;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Name Entry Page Styling */
+.name-entry {
+  text-align: center;
+}
+
+#greetingMessage {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ffdd59;
+  line-height: 1.5;
+  padding: 10px;
+  border-top: 1px solid #ffd700;
+  border-bottom: 1px solid #ffd700;
+}
+
+input#nameInput {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: #fff;
+  background: #ff8c00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.share-button {
+  margin-top: 10px;
+  background: #ff4500;
+}
+
+/* Message Carousel */
+.message-carousel {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out infinite;
+}
+
+/* Diwali Text Styling */
+.diwali-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ffdd59;
+  line-height: 1.5;
+  padding: 10px;
+  border-top: 1px solid #ffd700;
+  border-bottom: 1px solid #ffd700;
+}
+
+/* Jai Shri Ram Styling */
+.jai-shri-ram {
+  font-size: 2.5rem;
+  color: #ff4500;
+  margin-top: 20px;
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .dot {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+
+  .diwali-text p {
+    font-size: 1rem;
+  }
+
+  .jai-shri-ram {
+    font-size: 2rem;
+  }
+
+  .message-carousel {
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Sparkling Dots Background */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #ffd700;
+  border-radius: 50%;
+  opacity: 0;
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+  animation: sparkle 2s infinite ease-in-out;
+}
+
+/* Randomly Position the Dots */
+.dot:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.dot:nth-child(2) { top: 20%; left: 35%; animation-delay: 1s; }
+.dot:nth-child(3) { top: 30%; left: 50%; animation-delay: 1.5s; }
+.dot:nth-child(4) { top: 40%; left: 25%; animation-delay: 0.5s; }
+.dot:nth-child(5) { top: 50%; left: 70%; animation-delay: 2s; }
+.dot:nth-child(6) { top: 60%; left: 40%; animation-delay: 1.2s; }
+.dot:nth-child(7) { top: 75%; left: 15%; animation-delay: 1.8s; }
+.dot:nth-child(8) { top: 85%; left: 80%; animation-delay: 0.3s; }
+.dot:nth-child(9) { top: 90%; left: 50%; animation-delay: 2.3s; }
+.dot:nth-child(10) { top: 20%; left: 60%; animation-delay: 1.4s; }
+.dot:nth-child(11) { top: 70%; left: 20%; animation-delay: 0.7s; }
+.dot:nth-child(12) { top: 30%; left: 80%; animation-delay: 2.5s; }
