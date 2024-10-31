@@ -76,17 +76,22 @@
 
     // Share Functionality
     function shareWishes() {
-      const textToShare = document.getElementById("personalMessage").textContent || "Wishing you a Happy Diwali!";
-      if (navigator.share) {
-        navigator.share({
-          title: "Happy Diwali!",
-          text: textToShare,
-          url: window.location.href,
-        }).catch((error) => console.log("Error sharing:", error));
-      } else {
-        alert("Sharing is not supported on this device.");
-      }
-    }
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get('name') || "your friend";
+  
+  const textToShare = `✨ Happy Diwali from ${name}! ✨ Wishing you light, love, and prosperity this festive season! 🎉`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: "Happy Diwali!",
+      text: textToShare,
+      url: window.location.href,
+    }).catch((error) => console.log("Error sharing:", error));
+  } else {
+    alert("Sharing is not supported on this device.");
+  }
+}
+
 
     // Display the greeting when the page loads
     window.onload = displayGreeting;
